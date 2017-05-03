@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  
+
   <!-- Openlayers style -->
   <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css" />
   <!-- Scripts -->
@@ -37,6 +37,29 @@
     body {
       background-color: #26b3cc;
     }
+    #mapHeader {
+      font-family: 'Indie Flower', cursive;
+      padding-left: 15px;
+    }
+    #mapHeader h1 {
+      margin-top:5px;
+      margin-bottom: 5px;
+    }
+    #mapHeader p {
+      color: white;
+      font-size: 16px;
+      padding-left: 15px;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    #mapContainer {
+      padding: 0 !important;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 75px;
+      border-top:1px solid #133f84;
+    }
   </style>
   <script>
 	var WMS_BASE_LAYER='maastokartta';
@@ -46,7 +69,7 @@
 	proj4.defs("EPSG:3067","+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
 
 	var map = null;
-	
+
 	function makeMap() {
 		var mapDiv = $("#mapContainer");
 		var extent = [-548576.000000,6291456.000000,1548576.000000,8388608.000000];
@@ -82,10 +105,10 @@
 			  controls: ol.control.defaults(),
 			  logo: null
 			});
-		
+
 		//Add layers
 		map.addLayer(tileLayer);
-	    mapDiv.data('map', map);   
+	    mapDiv.data('map', map);
 	}
 	$(document).ready(function() {
 		makeMap();
@@ -93,7 +116,10 @@
   </script>
 </head>
 <body>
-	<h1>Testi</h1>
+  <div id="mapHeader">
+    	<h1>Missä mustikka?</h1>
+      <p>Etsi parhaat marjapaikat</p>
+  </div>
 	<div id="mapContainer" class="container-fluid mapContainer">
 	</div>
 </body>
