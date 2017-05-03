@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Openlayers style -->
   <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css" />
@@ -60,6 +61,14 @@
       top: 75px;
       border-top:1px solid #133f84;
     }
+    #showMyLocation {
+      position: absolute;
+      left: 9px;
+      top: 140px;
+    }
+    #showMyLocation a {
+      color: black;
+    }
   </style>
   <script>
 	var WMS_BASE_LAYER='maastokartta';
@@ -92,7 +101,8 @@
 	    });
 		var tileLayer = new ol.layer.Tile({
 	        extent: extent,
-	        source: tileSource
+	        source: tileSource,
+          opacity: 0.8
 	    });
     var berrySource = new ol.source.TileWMS({
 	    	url: berryUrl,
@@ -103,7 +113,7 @@
     var berryLayer = new ol.layer.Tile({
 	    	source: berrySource,
 	    	visible: true,
-        opacity: 0.5
+        opacity: 0.9
 	    });
 		map = new ol.Map({
 			  target: "mapContainer",
@@ -135,5 +145,8 @@
   </div>
 	<div id="mapContainer" class="container-fluid mapContainer">
 	</div>
+  <div id="showMyLocation">
+    <a href="#"><i class="material-icons">gps_fixed</i></a>
+  </div>
 </body>
 </html>
