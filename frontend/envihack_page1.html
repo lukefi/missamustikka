@@ -36,16 +36,35 @@
       padding-right: 20px;
     }
 
-    .berryInfoTopic {
+    .berryInfoTopic,
+    .aboutSystem h1 {
       font-family: 'Indie Flower', cursive;
     }
     .aboutSystem h1 {
-      font-family: 'Indie Flower', cursive;
       font-size:50px;
     }
     .aboutSystem p {
-      font-family: 'Fjalla One', sans-serif;
+      /*font-family: 'Fjalla One', sans-serif;*/
+      color: white;
       font-size: 16px;
+    }
+
+    .imgCol {
+      min-height:96px;
+      min-width: 120px;
+    }
+
+    .berryLat {
+      font-family: 'Fjalla One', sans-serif;
+      font-style:italic;
+      color:gray;
+      font-size: 18px;
+    }
+
+    @media only screen and (max-width: 992px) {
+      .imgCol {
+        position: static !important;
+      }
     }
   </style>
 
@@ -55,7 +74,7 @@
 
     <div class="container aboutSystem">
       <h1>Missä mustikka?</h1>
-      <p>Järjestelmän avulla voit etsiä mahdollisia marjapaikkoja kartalta. Järjestelmän toiminta pohjautuu aineistoon XYZ.</p>
+      <p>Lähde ulos luontoon nauttimaan ja keräilemään marjoja. Saat sekä liikuntaa että luonnon parhaimpia terveyspommeja, marjoja.</p>
     </div>
 
 
@@ -65,14 +84,16 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="row">
-              <div class="col-xs-2">
+              <div class="col-xs-2 imgCol">
                 <img src="https://www.luke.fi/wp-content/uploads/2015/11/mustikka.png" height="96px"/>
               </div>
               <div class="col-xs-10">
-                <h1 class="berryInfoTopic">Mustikka <span style="font-style:italic; color:lightgray;">(Vaccinium myrtillus)</span></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere, odio in lacinia sollicitudin, ipsum dui laoreet neque, a hendrerit nulla nunc ac ante. Etiam vestibulum lacus nulla, eget euismod lorem sagittis vel.</p>
-                <p>Aliquam erat volutpat. Nullam aliquam consequat nunc, et auctor nunc lacinia a. Integer magna nibh, vehicula at dictum sit amet, scelerisque sed lacus. Donec quis turpis molestie, pretium felis non, posuere diam. Pellentesque pellentesque malesuada lacus ut posuere. Morbi orci justo, tempor eu finibus at, vulputate vitae neque. Nam ut purus justo. Sed dui eros, egestas et convallis sed, dictum at nunc. Donec vel leo ante. Nullam sollicitudin nisi ut dolor viverra blandit.</p>
-                <p>Ut sodales ullamcorper neque quis feugiat. Morbi a porta libero. Vestibulum nec quam a dolor tincidunt cursus.</p>
+                <h1 class="berryInfoTopic">Mustikka <span class="berryLat">(Vaccinium myrtillus)</span></h1>
+                <!-- Source for the text: http://lehti.luontoportti.fi/fi/lajiesittely/mustikka -->
+                <p>Mustikka on varpukasvi ja kasvaa tuoreissa, nimensä mukaisesti mustikkatyypin kangasmetsissä. Mustikka viihtyy monenlaisissa metsissä, mutta ei kuitenkaan kuivassa ja paahteisessa kasvupaikassa. Lehdoista mustikkaa ei juuri löydy, sillä mustikka ei pidä emäksisestä kasvupaikasta.</p>
+                <p>Pohjoisessa lajia tavataan myös kuivissa kangasmetsissä ja tunturikankailla.</p>
+                <!-- Source end -->
+                <p><button type="button" class="btn btn-success">Näytä mustikkapaikat <span class="glyphicon glyphicon-menu-right"></span></button></p>
               </div>
             </div>
           </div>
@@ -86,14 +107,15 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="row">
-              <div class="col-xs-2">
+              <div class="col-xs-2 imgCol">
                 <img src="https://www.luke.fi/wp-content/uploads/2015/09/puolukka-300x400.jpg"  height="96px" />
               </div>
               <div class="col-xs-10">
-                <h1 class="berryInfoTopic">Puolukka <span style="font-style:italic; color:lightgray;">(Vaccinium vitis-idaea)</span></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere, odio in lacinia sollicitudin, ipsum dui laoreet neque, a hendrerit nulla nunc ac ante. Etiam vestibulum lacus nulla, eget euismod lorem sagittis vel.</p>
-                <p>Aliquam erat volutpat. Nullam aliquam consequat nunc, et auctor nunc lacinia a. Integer magna nibh, vehicula at dictum sit amet, scelerisque sed lacus. Donec quis turpis molestie, pretium felis non, posuere diam. Pellentesque pellentesque malesuada lacus ut posuere. Morbi orci justo, tempor eu finibus at, vulputate vitae neque. Nam ut purus justo. Sed dui eros, egestas et convallis sed, dictum at nunc. Donec vel leo ante. Nullam sollicitudin nisi ut dolor viverra blandit.</p>
-                <p>Ut sodales ullamcorper neque quis feugiat. Morbi a porta libero. Vestibulum nec quam a dolor tincidunt cursus.</p>
+                <h1 class="berryInfoTopic">Puolukka <span class="berryLat">(Vaccinium vitis-idaea)</span></h1>
+                <!-- Source for the text -->
+                <p>Puolukka on runsas etenkin valoisissa ja kuivahkoissa kangasmetsissä – tämä metsätyyppi onkin nimetty puolukkatyypin (VT) metsäksi. Puolukka on lisäksi kuivahkojen kankaiden indikaattorilaji. Puolukka on arvokkain ja eniten kerätty luonnonmarjamme, jota poimitaan paljon sekä kotikäyttöön että myyntiin.</p>
+                <!-- Source end -->
+                <p><button type="button" class="btn btn-success">Näytä puolukkapaikat <span class="glyphicon glyphicon-menu-right"></span></button></p>
               </div>
             </div>
           </div>
