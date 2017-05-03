@@ -73,7 +73,7 @@
 	function makeMap() {
 		var mapDiv = $("#mapContainer");
 		var extent = [-548576.000000,6291456.000000,1548576.000000,8388608.000000];
-		var center = [410000.0, 7050000.0];
+		var center = [372013.0, 6674422.0];
 		var projection = ol.proj.get('EPSG:3067');
 		var resolutions = [2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5, 0.25];
 	    var tileGrid = new ol.tilegrid.WMTS({
@@ -100,7 +100,7 @@
 			     resolutions: resolutions,
 			     extent: extent,
 			     center: center,
-			     zoom: 1
+			     zoom: 10
 			  }),
 			  controls: ol.control.defaults(),
 			  logo: null
