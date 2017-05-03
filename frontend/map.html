@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Missä mustikka?</title>
+
+  <!-- Styles -->
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+  <!-- Scripts -->
+
+  <!-- Jquery -->
+  <script crossorigin="anonymous" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Proj4 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js" type="text/javascript"><jsp:text></jsp:text></script>
+
+  <!-- ol3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol-debug.js"><jsp:text></jsp:text></script>
+
+
+  <style>
+    body {
+      background-color: #26b3cc;
+    }
+  </style>
+  <script>
+	var WMS_BASE_LAYER='maastokartta';
+    var WMS_IMAGE_FORMAT='image/png';
+    var WMS_URL='http://avoindata.maanmittauslaitos.fi/mapcache/wmts/';
+
+	proj4.defs("EPSG:3067","+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
+
+	var map = null;
+	
+	function makeMap() {
+		var mapDiv = $("#mapContainer");
+		var extent = [-548576.000000,6291456.000000,1548576.000000,8388608.000000];
+		var center = [410000.0, 7050000.0];
+		var projection = ol.proj.get('EPSG:3067');
+		var resolutions = [2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5, 0.25];
+	    var tileGrid = new ol.tilegrid.WMTS({
+			extent: extent,
+			resolutions: resolutions,
+			matrixIds: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+		});
+	    var tileSource = new ol.source.WMTS({
+	        url: WMS_URL,
+	        format: WMS_IMAGE_FORMAT,
+	        layer: WMS_BASE_LAYER,
+	        matrixSet: 'ETRS-TM35FIN',
+	        tileGrid: tileGrid,
+	        attributions: ["Taustakartat © MML"]
+	    });
+		var tileLayer = new ol.layer.Tile({
+	        extent: extent,
+	        source: tileSource
+	    });
+		map = new ol.Map({
+			  target: "mapContainer",
+			  view: new ol.View({
+			     projection: projection,
+			     resolutions: resolutions,
+			     extent: extent,
+			     center: center,
+			     zoom: 1
+			  }),
+			  controls: ol.control.defaults(),
+			  logo: null
+			});
+		
+		//Add layers
+		map.addLayer(tileLayer);
+	    mapDiv.data('map', map);   
+	}
+	$(document).ready(function() {
+		makeMap();
+	});
+  </script>
+</head>
+<body>
+	<h1>Testi</h1>
+	<div id="mapContainer" class="container-fluid mapContainer">
+	</div>
+</body>
+</html>
