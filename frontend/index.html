@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Missä mustikka?</title>
+
+  <!-- Styles -->
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Fjalla+One" rel="stylesheet">
+
+  <!-- Scripts -->
+
+  <!-- Jquery -->
+  <script crossorigin="anonymous" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <style>
+    body {
+      background-color: #26b3cc;
+    }
+
+    #content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .berryInfoTopic,
+    .aboutSystem h1 {
+      font-family: 'Indie Flower', cursive;
+    }
+    .aboutSystem h1 {
+      font-size:50px;
+    }
+    .aboutSystem p {
+      /*font-family: 'Fjalla One', sans-serif;*/
+      color: white;
+      font-size: 16px;
+    }
+
+    .imgCol {
+      min-height:96px;
+      min-width: 120px;
+    }
+
+    .berryLat {
+      font-family: 'Fjalla One', sans-serif;
+      font-style:italic;
+      color:gray;
+      font-size: 18px;
+    }
+
+    @media only screen and (max-width: 992px) {
+      .imgCol {
+        position: static !important;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <div id="content">
+
+    <div class="container aboutSystem">
+      <h1>Missä mustikka?</h1>
+      <p>Lähde ulos luontoon nauttimaan ja keräilemään marjoja. Saat sekä liikuntaa että luonnon parhaimpia terveyspommeja, marjoja. Järjestelmä piirtää kartalle mahdollisia marjapaikkoja.</p>
+      <p>Järjestelmä kehitetty EnviHack 2017 tapahtumaa varten Luken ja Syken yhteistyönä.</p>
+    </div>
+
+
+    <!-- Berry 1 -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2 imgCol">
+                <img src="https://www.luke.fi/wp-content/uploads/2015/11/mustikka.png" height="96px"/>
+              </div>
+              <div class="col-xs-10">
+                <h1 class="berryInfoTopic">Mustikka <span class="berryLat">(Vaccinium myrtillus)</span></h1>
+                <!-- Source for the text: http://lehti.luontoportti.fi/fi/lajiesittely/mustikka -->
+                <p>Mustikka on varpukasvi ja kasvaa tuoreissa, nimensä mukaisesti mustikkatyypin kangasmetsissä. Mustikka viihtyy monenlaisissa metsissä, mutta ei kuitenkaan kuivassa ja paahteisessa kasvupaikassa. Lehdoista mustikkaa ei juuri löydy, sillä mustikka ei pidä emäksisestä kasvupaikasta.</p>
+                <p>Pohjoisessa lajia tavataan myös kuivissa kangasmetsissä ja tunturikankailla.</p>
+                <!-- Source end -->
+                <p><a href="map.html" role="button" class="btn btn-success">Näytä mustikkapaikat <span class="glyphicon glyphicon-menu-right"></span></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Berry 2 -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-2 imgCol">
+                <img src="https://www.luke.fi/wp-content/uploads/2015/09/puolukka-300x400.jpg"  height="96px" />
+              </div>
+              <div class="col-xs-10">
+                <h1 class="berryInfoTopic">Puolukka <span class="berryLat">(Vaccinium vitis-idaea)</span></h1>
+                <!-- Source for the text -->
+                <p>Puolukka on runsas etenkin valoisissa ja kuivahkoissa kangasmetsissä – tämä metsätyyppi onkin nimetty puolukkatyypin (VT) metsäksi. Puolukka on lisäksi kuivahkojen kankaiden indikaattorilaji. Puolukka on arvokkain ja eniten kerätty luonnonmarjamme, jota poimitaan paljon sekä kotikäyttöön että myyntiin.</p>
+                <!-- Source end -->
+                <p><a href="map.html" role="button" class="btn btn-success">Näytä puolukkapaikat <span class="glyphicon glyphicon-menu-right"></span></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- End of content div -->
+
+</body>
+</html>
