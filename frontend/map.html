@@ -79,12 +79,14 @@
 	proj4.defs("EPSG:3067","+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
 
 	var map = null;
+  var view = null;
+  var projection = null;
 
 	function makeMap() {
 		var mapDiv = $("#mapContainer");
 		var extent = [-548576.000000,6291456.000000,1548576.000000,8388608.000000];
 		var center = [372013.0, 6674422.0];
-		var projection = ol.proj.get('EPSG:3067');
+		projection = ol.proj.get('EPSG:3067');
 		var resolutions = [2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1, 0.5, 0.25];
 	    var tileGrid = new ol.tilegrid.WMTS({
 			extent: extent,
@@ -115,24 +117,44 @@
 	    	visible: true,
         opacity: 0.9
 	    });
+    view = new ol.View({
+       projection: projection,
+       resolutions: resolutions,
+       extent: extent,
+       center: center,
+       zoom: 10
+    });
 		map = new ol.Map({
 			  target: "mapContainer",
-			  view: new ol.View({
-			     projection: projection,
-			     resolutions: resolutions,
-			     extent: extent,
-			     center: center,
-			     zoom: 10
-			  }),
+			  view: view,
 			  controls: ol.control.defaults(),
 			  logo: null
 			});
 
+
+
 		//Add layers
 		map.addLayer(tileLayer);
     map.addLayer(berryLayer);
-	    mapDiv.data('map', map);
+
+    mapDiv.data('map', map);
+    userLocation();
 	}
+
+  function userLocation() {
+    //geolocation.bindTo('projection', view);
+  	if ("geolocation" in navigator) {
+  		var button = $("#userLocationBtn");
+      var geolocation = new ol.Geolocation({
+        projection: projection,
+        tracking: true
+      });
+  		button.click(function() {
+  		     map.getView().setCenter(geolocation.getPosition());
+  		});
+  	}
+  }
+
 	$(document).ready(function() {
 		makeMap();
 	});
@@ -146,7 +168,7 @@
 	<div id="mapContainer" class="container-fluid mapContainer">
 	</div>
   <div id="showMyLocation">
-    <a href="#"><i class="material-icons">gps_fixed</i></a>
+    <a href="#" id="userLocationBtn"><i class="material-icons">gps_fixed</i></a>
   </div>
 </body>
 </html>
