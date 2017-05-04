@@ -1,0 +1,45 @@
+body {
+  background-color: #26b3cc;
+}
+#mapHeader {
+  font-family: 'Indie Flower', cursive;
+  padding-left: 15px;
+}
+#mapHeader h1 {
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+#mapHeader p {
+  color: white;
+  font-size: 16px;
+  padding-left: 15px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#mapContainer {
+  padding: 0 !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 75px;
+  border-top:1px solid #133f84;
+}
+#showMyLocation {
+  position: absolute;
+  left: 9px;
+  top: 170px;
+}
+#showMyLocation a {
+  color: blue;
+}
+#legend {
+  position: absolute;
+  left: 11px;
+  top: 140px;
+  font-size: 20px;
+}
+
+/* Fixes bootstrap tooltip wrapping issue */
+.tooltip {
+  min-width: 200px;
+}

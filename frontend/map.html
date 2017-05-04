@@ -7,81 +7,30 @@
   <title>Missä mustikka?</title>
 
   <!-- Styles -->
-
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <!-- Latest compiled and minified bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <!-- Optional theme for bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <!-- Openlayers style -->
   <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css" />
-  <!-- Scripts -->
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/map_styles.css" type="text/css" />
 
+  <!-- Scripts -->
   <!-- Jquery -->
   <script crossorigin="anonymous" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-
-  <!-- Latest compiled and minified JavaScript -->
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
   <!-- Proj4 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js" type="text/javascript"><jsp:text></jsp:text></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js" type="text/javascript"></script>
   <!-- ol3 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol-debug.js"><jsp:text></jsp:text></script>
-
-
-  <style>
-    body {
-      background-color: #26b3cc;
-    }
-    #mapHeader {
-      font-family: 'Indie Flower', cursive;
-      padding-left: 15px;
-    }
-    #mapHeader h1 {
-      margin-top:5px;
-      margin-bottom: 5px;
-    }
-    #mapHeader p {
-      color: white;
-      font-size: 16px;
-      padding-left: 15px;
-      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    }
-    #mapContainer {
-      padding: 0 !important;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 75px;
-      border-top:1px solid #133f84;
-    }
-    #showMyLocation {
-      position: absolute;
-      left: 9px;
-      top: 170px;
-    }
-    #showMyLocation a {
-      color: blue;
-    }
-    #legend {
-      position: absolute;
-      left: 11px;
-      top: 140px;
-      font-size: 20px;
-    }
-
-    /* Fixes bootstrap tooltip wrapping issue */
-    .tooltip {
-      min-width: 200px;
-    }
-  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.20.1/ol-debug.js"></script>
+  <!-- Custom scripts -->
   <script src="js/map.js"></script>
+
 </head>
 
 <body>
