@@ -91,7 +91,7 @@
 
 	var laji = "mustikka";
 
-
+  //Check laji from url
 	function checkLajiParam(l) {
 		if(window.location.href.search("laji=" + l) != -1) {
 			laji = l;
@@ -154,8 +154,6 @@
 			  logo: null
 			});
 
-
-
 		//Add layers
 		map.addLayer(tileLayer);
     map.addLayer(berryLayer);
@@ -184,14 +182,18 @@
 
     //Init tooltip
     $('[data-toggle="tooltip"]').tooltip();
+
+    //Update laji text to header
+    $("#lajiInfoTxt").text(laji);
 	});
   </script>
 </head>
+
 <body>
 
   <!-- Header div above map -->
   <div id="mapHeader">
-    	<h1>Missä mustikka?</h1>
+    	<h1>Missä <span id="lajiInfoTxt"></span>?</h1>
       <p><a href="index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Palaa etusivulle</a></p>
   </div>
 
