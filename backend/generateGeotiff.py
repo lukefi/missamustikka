@@ -5,7 +5,7 @@ gdal.AllRegister()
 
 src_filename = "../../aineisto/Clc2012_FI20m_Espoo.tif"
 dstPath = "../../output"
-berries = ["mustikka", "puolukka", "karpalo"]
+berries = ["mustikka", "puolukka", "karpalo", "vadelma"]
 
 # WARNING: these values are for testing only, not real data
 corineToBerryIndex = dict()
@@ -15,11 +15,16 @@ corineToBerryIndex["mustikka"][25] = 80
 corineToBerryIndex["mustikka"][27] = 50
 corineToBerryIndex["mustikka"][28] = 60
 corineToBerryIndex["puolukka"] = dict()
-corineToBerryIndex["puolukka"][24] = 60
-corineToBerryIndex["puolukka"][25] = 50
+corineToBerryIndex["puolukka"][24] = 80
+corineToBerryIndex["puolukka"][25] = 60
 corineToBerryIndex["karpalo"] = dict()
 corineToBerryIndex["karpalo"][40] = 50
 corineToBerryIndex["karpalo"][42] = 80
+corineToBerryIndex["vadelma"] = dict()
+corineToBerryIndex["vadelma"][36] = 80
+corineToBerryIndex["vadelma"][35] = 60
+
+normalizationFactor = 100 / 80
 
 src_ds = gdal.Open(src_filename)
 corineBand = src_ds.GetRasterBand(1)
@@ -29,7 +34,7 @@ print xSize, ySize
 
 for berry in berries:
 	driver = src_ds.GetDriver()
-	dst_ds = driver.Create(dstPath + "/" + berry + ".tif", xSize, ySize, 1, gdal.GDT_UInt16)
+	dst_ds = driver.Create(dstPath + "/" + berry + ".tif", xSize, ySize, 1, gdal.GDT_UInt16, options = ['COMPRESS=LZW'])
 	dst_ds.SetGeoTransform(src_ds.GetGeoTransform())
 	dst_ds.SetProjection(src_ds.GetProjection())
 
@@ -39,7 +44,7 @@ for berry in berries:
 		for y in range(0, ySize):
 			origVal = array[y,x]
 			if origVal in corineToBerryIndex[berry]:
-				finalVal = corineToBerryIndex[berry][origVal]
+				finalVal = corineToBerryIndex[berry][origVal] * normalizationFactor
 			else:
 				finalVal = 0
 			array[y,x] = finalVal
