@@ -78,7 +78,18 @@
 
 	proj4.defs("EPSG:3067","+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
 
-	var map = null;
+	var laji = "mustikka";
+	
+	
+	function checkLajiParam(l) {
+		if(window.location.href.search("laji=" + l) != -1) {
+			laji = l;
+		}
+	}
+	checkLajiParam("mustikka");
+	checkLajiParam("puolukka");
+
+  var map = null;
   var view = null;
   var projection = null;
 
@@ -108,7 +119,7 @@
 	    });
     var berrySource = new ol.source.TileWMS({
 	    	url: berryUrl,
-	    	params: {'LAYERS':'riistadb:mustikka','TILED':true},
+	    	params: {'LAYERS':'riistadb:'+laji,'TILED':true},
 	    	servertype: 'geoserver',
 	    	tileGrid: tileGrid
 	    });
