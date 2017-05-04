@@ -27,7 +27,7 @@ body {
 #showMyLocation {
   position: absolute;
   left: 9px;
-  top: 170px;
+  top: 180px;
 }
 #showMyLocation a {
   color: blue;
@@ -35,7 +35,7 @@ body {
 #legend {
   position: absolute;
   left: 11px;
-  top: 140px;
+  top: 150px;
   font-size: 20px;
 }
 
