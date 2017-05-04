@@ -79,8 +79,8 @@
 	proj4.defs("EPSG:3067","+proj=utm +zone=35 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
 
 	var laji = "mustikka";
-	
-	
+
+
 	function checkLajiParam(l) {
 		if(window.location.href.search("laji=" + l) != -1) {
 			laji = l;
@@ -88,6 +88,7 @@
 	}
 	checkLajiParam("mustikka");
 	checkLajiParam("puolukka");
+  checkLajiParam("karpalo");
 
   var map = null;
   var view = null;
