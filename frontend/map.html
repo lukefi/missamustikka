@@ -64,10 +64,21 @@
     #showMyLocation {
       position: absolute;
       left: 9px;
-      top: 140px;
+      top: 170px;
     }
     #showMyLocation a {
-      color: black;
+      color: blue;
+    }
+    #legend {
+      position: absolute;
+      left: 11px;
+      top: 140px;
+      font-size: 20px;
+    }
+
+    /* Fixes bootstrap tooltip wrapping issue */
+    .tooltip {
+      min-width: 200px;
     }
   </style>
   <script>
@@ -168,7 +179,11 @@
   }
 
 	$(document).ready(function() {
+    //Generate map
 		makeMap();
+
+    //Init tooltip
+    $('[data-toggle="tooltip"]').tooltip();
 	});
   </script>
 </head>
@@ -177,16 +192,22 @@
   <!-- Header div above map -->
   <div id="mapHeader">
     	<h1>Missä mustikka?</h1>
-      <p><a href="index.html"><span class="glyphicon glyphicon-chevron-left"></span> Palaa etusivulle</a></p>
+      <p><a href="index.html"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Palaa etusivulle</a></p>
   </div>
 
   <!-- Container for the map -->
 	<div id="mapContainer" class="container-fluid mapContainer">
 	</div>
 
+  <!-- Legend icon div -->
+  <div id="legend">
+    <a href="#" id="showLegend"><span class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="right" title="Esiintymien selitteet" aria-hidden="true"></span></a>
+  </div>
+
   <!-- GPS icon div -->
   <div id="showMyLocation">
-    <a href="#" id="userLocationBtn"><i class="material-icons">gps_fixed</i></a>
+    <a href="#" id="userLocationBtn" data-toggle="tooltip" data-placement="right" title="Keskitä kartta omaan sijaintiin"><i class="material-icons">gps_fixed</i></a>
   </div>
+
 </body>
 </html>
