@@ -8,7 +8,7 @@ the potential sites. The algorithm is NOT BASED ON SCIENTIFIC RESEARCH.
 
 ## Authors
 
-Samuli Lehto, Finnish Environment Institute
-Henri Näpärä, Natural Resources Institute Finland
-Petri Sarvamaa, Natural Resources Institute Finland
-Harri Pitkänen, Natural Resources Institute Finland
+* Samuli Lehto, Finnish Environment Institute
+* Henri Näpärä, Natural Resources Institute Finland
+* Petri Sarvamaa, Natural Resources Institute Finland
+* Harri Pitkänen, Natural Resources Institute Finland
