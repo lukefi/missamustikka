@@ -15,7 +15,6 @@ body {
   font-size:50px;
 }
 .aboutSystem p {
-  /*font-family: 'Fjalla One', sans-serif;*/
   color: white;
   font-size: 16px;
 }
@@ -26,7 +25,6 @@ body {
 }
 
 .berryLat {
-  font-family: 'Fjalla One', sans-serif;
   font-style:italic;
   color:gray;
   font-size: 18px;
