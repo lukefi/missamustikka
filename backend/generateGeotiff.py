@@ -1,11 +1,15 @@
 from osgeo import gdal, ogr, gdalconst
+import sys
 
 gdal.UseExceptions()
 gdal.AllRegister()
 
-src_filename = "../../aineisto/Clc2012_FI20m_Espoo.tif"
+src_filename = "../../aineisto/Clc2012_FI20m.tif"
 dstPath = "../../output"
 berries = ["mustikka", "puolukka", "karpalo", "vadelma"]
+
+if len(sys.argv) > 1:
+	berries = [sys.argv[1]]
 
 # WARNING: these values are for testing only, not real data
 corineToBerryIndex = dict()
@@ -30,7 +34,7 @@ src_ds = gdal.Open(src_filename)
 corineBand = src_ds.GetRasterBand(1)
 xSize = corineBand.XSize
 ySize = corineBand.YSize
-print xSize, ySize
+print "Input raster size is ", xSize, ySize
 
 for berry in berries:
 	driver = src_ds.GetDriver()
@@ -41,6 +45,8 @@ for berry in berries:
 	array = corineBand.ReadAsArray(0, 0, xSize, ySize)
 
 	for x in range(0, xSize):
+		if x % 500 == 0:
+			print `round(100.0 * x / xSize)` + " % of " + berry + " done"
 		for y in range(0, ySize):
 			origVal = array[y,x]
 			if origVal in corineToBerryIndex[berry]:
@@ -48,7 +54,6 @@ for berry in berries:
 			else:
 				finalVal = 0
 			array[y,x] = finalVal
-	print array
 
 	dstBand = dst_ds.GetRasterBand(1)
 	dstBand.WriteArray(array, 0, 0)
