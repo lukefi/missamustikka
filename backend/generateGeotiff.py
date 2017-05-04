@@ -5,7 +5,7 @@ gdal.AllRegister()
 
 src_filename = "../../aineisto/Clc2012_FI20m_Espoo.tif"
 dstPath = "../../output"
-berries = ["mustikka", "puolukka"]
+berries = ["mustikka", "puolukka", "karpalo"]
 
 # WARNING: these values are for testing only, not real data
 corineToBerryIndex = dict()
@@ -17,6 +17,9 @@ corineToBerryIndex["mustikka"][28] = 60
 corineToBerryIndex["puolukka"] = dict()
 corineToBerryIndex["puolukka"][24] = 60
 corineToBerryIndex["puolukka"][25] = 50
+corineToBerryIndex["karpalo"] = dict()
+corineToBerryIndex["karpalo"][40] = 50
+corineToBerryIndex["karpalo"][42] = 80
 
 src_ds = gdal.Open(src_filename)
 corineBand = src_ds.GetRasterBand(1)
