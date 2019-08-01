@@ -1,6 +1,7 @@
+
 var WMS_BASE_LAYER = 'maastokartta';
 var WMS_IMAGE_FORMAT = 'image/png';
-var WMS_URL = 'http://avoindata.maanmittauslaitos.fi/mapcache/wmts/';
+var WMS_URL = 'https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/';
 var berryUrl = 'http://apps3test.luke.fi:8080/geoserver/riistadb/wms';
 
 proj4.defs("EPSG:3067",
@@ -42,7 +43,7 @@ function makeMap() {
 		layer : WMS_BASE_LAYER,
 		matrixSet : 'ETRS-TM35FIN',
 		tileGrid : tileGrid,
-		attributions : [ "Taustakartat © MML" ]
+		attributions : [ "Taustakartat Â© MML" ]
 	});
 	var tileLayer = new ol.layer.Tile({
 		extent : extent,
